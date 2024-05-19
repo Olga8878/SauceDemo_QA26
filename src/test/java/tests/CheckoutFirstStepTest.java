@@ -1,13 +1,10 @@
 package tests;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.CartPage;
-import page.CheckoutOneStepPage;
+import page.CheckoutFirstStepPage;
 import page.LoginPage;
-
-public class CheckoutOneStepTest extends BaseTest {
-
+public class CheckoutFirstStepTest extends BaseTest {
         @Test
         public void inputCardInformationTest() {
                 loginPage.open();
@@ -16,11 +13,8 @@ public class CheckoutOneStepTest extends BaseTest {
                 productsPage.clickAddCartButton(productName);
                 CartPage.clickCartLink();
                 CartPage.clickCheckoutButton();
-
-                CheckoutOneStepPage.checkout("Olga", "Alekseychik", "11111");
-                Assert.assertEquals(CheckoutOneStepPage.getItemTotal(), "Item total: $49.99");
-
-
+                CheckoutFirstStepPage.checkout("Olga", "Alekseychik", "11111");
+                Assert.assertEquals(CheckoutFirstStepPage.getItemTotal(), "Item total: $49.99");
         }
 }
 
