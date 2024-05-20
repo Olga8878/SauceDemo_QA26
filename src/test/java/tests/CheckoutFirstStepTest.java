@@ -8,13 +8,13 @@ public class CheckoutFirstStepTest extends BaseTest {
         @Test
         public void inputCardInformationTest() {
                 loginPage.open();
-                LoginPage.login("standard_user", "secret_sauce");
+                loginPage.login("standard_user", "secret_sauce");
                 String productName = "Sauce Labs Fleece Jacket";
                 productsPage.clickAddCartButton(productName);
-                CartPage.clickCartLink();
-                CartPage.clickCheckoutButton();
-                CheckoutFirstStepPage.checkout("Olga", "Alekseychik", "11111");
-                Assert.assertEquals(CheckoutFirstStepPage.getItemTotal(), "Item total: $49.99");
+                cartPage.clickCartLink();
+                cartPage.clickCheckoutButton();
+                checkoutFirstStepPage.checkout("Olga", "Alekseychik", "11111");
+                Assert.assertEquals(checkoutFirstStepPage.getItemTotal(), "Item total: $49.99");
         }
 }
 

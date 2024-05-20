@@ -17,19 +17,19 @@ public class CartPage extends BasePage {
     public CartPage(WebDriver driver) {
         super(driver);
     }
-    public static void clickCheckoutButton() {
+    public void clickCheckoutButton() {
         driver.findElement(CHECKOUT_BUTTON).click();
     }
-     public static String getCartBadge() {
+     public String getCartBadge() {
          return driver.findElement(SHOPPING_CART_BADGE).getText();
      }
-    public static void clickCartLink() {
+    public void clickCartLink() {
         driver.findElement(CART_LINK).click();
     }
     public boolean showCheckoutInfo() {
         return driver.findElement(CHECKOUT_INFO).isDisplayed();
     }
-    public static void clickRemoveButton(String productName) {
+    public void clickRemoveButton(String productName) {
         driver.findElement(REMOVE_TO_CART_BUTTON).click();
     }
     private WebElement getProductCardByName(String productName) {

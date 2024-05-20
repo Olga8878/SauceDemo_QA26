@@ -11,8 +11,8 @@ public abstract class BaseTest {
     protected WebDriver driver;
     protected LoginPage loginPage;
     protected ProductsPage productsPage;
-    protected CheckoutFirstStepPage checkoutOneStepPage;
-    protected CheckoutSecondStepPage checkoutTwoStepPage;
+    protected CheckoutFirstStepPage checkoutFirstStepPage;
+    protected CheckoutSecondStepPage checkoutSecondStepPage;
     protected CheckoutCompletePage checkoutCompletePage;
     protected CartPage cartPage;
 
@@ -23,8 +23,8 @@ public abstract class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         this.loginPage = new LoginPage(driver);
         this.productsPage = new ProductsPage(driver);
-        this.checkoutOneStepPage = new CheckoutFirstStepPage(driver);
-        this.checkoutTwoStepPage = new CheckoutSecondStepPage(driver);
+        this.checkoutFirstStepPage = new CheckoutFirstStepPage(driver);
+        this.checkoutSecondStepPage = new CheckoutSecondStepPage(driver);
         this.checkoutCompletePage = new CheckoutCompletePage(driver);
         this.cartPage = new CartPage(driver);
     }

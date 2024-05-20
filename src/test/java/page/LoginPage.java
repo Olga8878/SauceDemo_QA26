@@ -11,19 +11,18 @@ public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {
         super(driver);
     }
-
-    public static void setEmailValue(String email) {
+    public void setEmailValue(String email) {
         driver.findElement(EMAIL_INPUT).sendKeys(email);
     }
 
-    public static void setPasswordValue(String password) {
+    public void setPasswordValue(String password) {
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
     }
 
-    public static void clickLoginButton() {
+    public void clickLoginButton() {
         driver.findElement(LOGIN_BUTTON).click();
     }
-    public static void login(String email, String password) {
+    public void login(String email, String password) {
         setEmailValue(email);
         setPasswordValue(password);
         clickLoginButton();

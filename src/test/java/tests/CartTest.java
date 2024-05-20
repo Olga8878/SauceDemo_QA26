@@ -7,41 +7,40 @@ import page.*;
 public class CartTest extends BaseTest {
     @Test
     public void addToCartItems() {
-        String productName = "Sauce Labs Fleece Jacket";
-        String productName2 = "Sauce Labs Backpack";
+        String firstProductName = "Sauce Labs Fleece Jacket";
+        String secondProductName2 = "Sauce Labs Backpack";
         loginPage.open();
-        LoginPage.login("standard_user", "secret_sauce");
-        productsPage.clickAddCartButton(productName);
-        productsPage.clickAddCartButton(productName2);
-        CartPage.clickCartLink();
+        loginPage.login("standard_user", "secret_sauce");
+        productsPage.clickAddCartButton(firstProductName);
+        productsPage.clickAddCartButton(secondProductName2);
+        cartPage.clickCartLink();
         Assert.assertTrue(productsPage.isShoppingCartDisplayed());
-        Assert.assertEquals(cartPage.getProductPrice(productName), "$49.99");
-        Assert.assertEquals(cartPage.getProductDescription(productName), "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.");
-        Assert.assertEquals(cartPage.getProductPrice(productName2), "$29.99");
-        Assert.assertEquals(cartPage.getProductDescription(productName2), "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.");
-        CartPage.clickCheckoutButton();
+        Assert.assertEquals(cartPage.getProductPrice(firstProductName), "$49.99");
+        Assert.assertEquals(cartPage.getProductDescription(firstProductName), "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.");
+        Assert.assertEquals(cartPage.getProductPrice(secondProductName2), "$29.99");
+        Assert.assertEquals(cartPage.getProductDescription(secondProductName2), "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.");
+        cartPage.clickCheckoutButton();
         Assert.assertTrue(cartPage.showCheckoutInfo(), "Checkout: Your Information");
     }
 
     @Test
-    public void addToCartItemsAndRemoveItem() throws InterruptedException {
-        String productName = "Sauce Labs Fleece Jacket";
-        String productName2 = "Sauce Labs Backpack";
+    public void addToCartItemsAndRemoveItem() {
+        String firstProductName = "Sauce Labs Fleece Jacket";
+        String secondProductName2 = "Sauce Labs Backpack";
         loginPage.open();
-        LoginPage.login("standard_user", "secret_sauce");
-        productsPage.clickAddCartButton(productName);
-        productsPage.clickAddCartButton(productName2);
-        CartPage.clickCartLink();
+        loginPage.login("standard_user", "secret_sauce");
+        productsPage.clickAddCartButton(firstProductName);
+        productsPage.clickAddCartButton(secondProductName2);
+        cartPage.clickCartLink();
         Assert.assertTrue(productsPage.isShoppingCartDisplayed());
-        Assert.assertEquals(cartPage.getProductPrice(productName), "$49.99");
-        Assert.assertEquals(cartPage.getProductDescription(productName), "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.");
-        Assert.assertEquals(cartPage.getProductPrice(productName2), "$29.99");
-        Assert.assertEquals(cartPage.getProductDescription(productName2), "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.");
-        CartPage.getCartBadge();
-        Assert.assertEquals(CartPage.getCartBadge(), "2");
-        CartPage.clickRemoveButton(productName2);
-        Assert.assertEquals(CartPage.getCartBadge(), "1");
-        CartPage.clickCheckoutButton();
+        Assert.assertEquals(cartPage.getProductPrice(firstProductName), "$49.99");
+        Assert.assertEquals(cartPage.getProductDescription(firstProductName), "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.");
+        Assert.assertEquals(cartPage.getProductPrice(secondProductName2), "$29.99");
+        Assert.assertEquals(cartPage.getProductDescription(secondProductName2), "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.");
+        Assert.assertEquals(cartPage.getCartBadge(), "2");
+        cartPage.clickRemoveButton(secondProductName2);
+        Assert.assertEquals(cartPage.getCartBadge(), "1");
+        cartPage.clickCheckoutButton();
         Assert.assertTrue(cartPage.showCheckoutInfo(), "Checkout: Your Information");
     }
 }

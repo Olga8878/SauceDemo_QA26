@@ -14,25 +14,25 @@ public class CheckoutFirstStepPage extends BasePage {
     public CheckoutFirstStepPage(WebDriver driver) {
         super(driver);
     }
-    private static void inputFirstName(String firstname) {
+    private void inputFirstName(String firstname) {
         driver.findElement(FIRST_NAME_FIELD).sendKeys(firstname);
     }
-    private static void inputLastName(String lastname) {
+    private void inputLastName(String lastname) {
         driver.findElement(LAST_NAME_FIELD).sendKeys(lastname);
     }
-    private static void inputZipCode(String zipcode) {
+    private void inputZipCode(String zipcode) {
         driver.findElement(INPUT_ZIP).sendKeys(zipcode);
     }
-    public static String getItemTotal() {
+    public String getItemTotal() {
         return driver.findElement(ITEM_TOTAL).getText();
     }
-    private static void clickContinueButton() {
+    private void clickContinueButton() {
         driver.findElement(CONTINUE_BUTTON).click();
     }
-    public static void clickCartLink() {
+    public void clickCartLink() {
         driver.findElement(CART_LINK).click();
     }
-    public static void checkout(String firstname, String lastname, String zipcode) {
+    public void checkout(String firstname, String lastname, String zipcode) {
         inputFirstName(firstname);
         inputLastName(lastname);
         inputZipCode(zipcode);

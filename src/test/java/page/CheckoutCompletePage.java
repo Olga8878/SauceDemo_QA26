@@ -9,10 +9,10 @@ public class CheckoutCompletePage extends BasePage {
     public CheckoutCompletePage(WebDriver driver) {
         super(driver);
     }
-    public static boolean isShowExpressImage() {
+    public boolean isShowExpressImage() {
         return driver.findElement(EXPRESS_IMAGE).isDisplayed();
     }
-    public static void clickBackhomeButton() {
+    public void clickBackhomeButton() {
         driver.findElement(BACK_HOME_BUTTON).click();
     }
 }
