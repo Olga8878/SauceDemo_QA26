@@ -3,7 +3,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.*;
 public class CheckoutSecondStepTest extends BaseTest {
-    @Test
+    @Test(description = "Check the completion of payment for purchases", groups = "Regression")
     public void clickFinishButton() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
