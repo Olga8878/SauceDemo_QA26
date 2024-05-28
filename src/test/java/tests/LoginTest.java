@@ -30,11 +30,4 @@ public class LoginTest extends BaseTest {
         loginPage.login(username, password);
         Assert.assertEquals(loginPage.getErrorMessageText(), errorMessage);
     }
-
-    @Test(description = "Negative test with the introduction of an incorrect password", groups = "Smoke")
-    public void negativeLoginTestWrongPassword() {
-        loginPage.open();
-        loginPage.login("standard_user", "");
-        Assert.assertEquals(loginPage.getErrorMessageText(), "Epic sadface: Password is required");
-    }
 }
