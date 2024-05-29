@@ -1,10 +1,12 @@
 package tests;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.CartPage;
 import page.LoginPage;
+
 public class ProductsTests extends BaseTest {
-    @Test
+    @Test(description = "Check the addition of an item to the shopping cart", groups = "Smoke")
     public void addToCartProductTest() {
         loginPage.open();
         String productName = "Sauce Labs Fleece Jacket";

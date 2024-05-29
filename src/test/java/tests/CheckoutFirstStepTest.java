@@ -5,7 +5,7 @@ import page.CartPage;
 import page.CheckoutFirstStepPage;
 import page.LoginPage;
 public class CheckoutFirstStepTest extends BaseTest {
-        @Test
+        @Test(description = "Check the input of payment information", groups = "Smoke")
         public void inputCardInformationTest() {
                 loginPage.open();
                 loginPage.login("standard_user", "secret_sauce");

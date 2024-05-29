@@ -21,18 +21,29 @@
     </dependency>
 
   </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>16</source>
-                    <target>16</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>3.2.5</version>
+      <configuration>
+        <suiteXmlFiles>
+          <suiteXmlFile>${suiteName}</suiteXmlFile>
+        </suiteXmlFiles>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
+
+  <properties>
+  <maven.compiler.sourse>17</maven.compiler.sourse>
+  <maven.compiler.target>17</maven.compiler.target>
+  <progect.build.sourceEncoding>UTF-8</progect.build.sourceEncoding>
+  <selenium.version>4.19.1</selenium.version>
+  <suiteName>src/test/resources/suites/regression.xml</suiteName>
+  </properties>
+
     <name>Archetype - SauceDemo_QA26</name>
   <url>http://maven.apache.org</url>
 </project>

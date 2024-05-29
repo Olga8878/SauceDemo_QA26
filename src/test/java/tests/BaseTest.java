@@ -2,11 +2,14 @@ package tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.annotations.*;
 import page.*;
+import utils.TestListener;
+
 import java.time.Duration;
 
+@Listeners({TestListener.class})
 public abstract class BaseTest {
     protected WebDriver driver;
     protected LoginPage loginPage;
@@ -17,7 +20,15 @@ public abstract class BaseTest {
     protected CartPage cartPage;
 
     @BeforeMethod(alwaysRun = true)
-    public void setUp() {
+    @Parameters({"browserName"})
+    public void setUp(@Optional("chrome") String browser) throws Exception {
+        if (browser.equals("chrome")) {
+            this.driver = new ChromeDriver();
+        } else if (browser.equals("microsoft edge")) {
+            this.driver = new EdgeDriver();
+        } else {
+            throw new Exception("Unsupported browser");
+        }
         this.driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -28,6 +39,7 @@ public abstract class BaseTest {
         this.checkoutCompletePage = new CheckoutCompletePage(driver);
         this.cartPage = new CartPage(driver);
     }
+
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
         this.driver.quit();
