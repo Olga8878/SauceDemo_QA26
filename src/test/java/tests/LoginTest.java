@@ -14,7 +14,6 @@ public class LoginTest extends BaseTest {
         loginPage.login("standard_user", "secret_sauce");
         Assert.assertTrue(productsPage.isShoppingCartDisplayed());
     }
-
     @DataProvider
     public Object[][] negativeLoginTestData() {
         return new Object[][]{
@@ -23,8 +22,7 @@ public class LoginTest extends BaseTest {
 
         };
     }
-
-    @Test(description = "Negative loginForm test", groups = "Smoke", dataProvider = "negativeLoginTestData", retryAnalyzer = Retry.class)
+    @Test(description = "Negative loginForm test", groups = "Regression", dataProvider = "negativeLoginTestData", retryAnalyzer = Retry.class)
     public void negativeLoginTestWrongEmail(String username, String password, String errorMessage) {
         loginPage.open();
         loginPage.login(username, password);
