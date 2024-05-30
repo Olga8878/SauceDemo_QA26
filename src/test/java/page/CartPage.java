@@ -37,7 +37,7 @@ public class CartPage extends BasePage {
         AllureUtils.attachScreenshot(driver);
         return driver.findElement(CHECKOUT_INFO).isDisplayed();
     }
-    @Step("Click on Remove button for product")
+    @Step("Click on Remove button for product: {productName}")
     public void clickRemoveButton(String productName) {
         driver.findElement(REMOVE_TO_CART_BUTTON).click();
     }
