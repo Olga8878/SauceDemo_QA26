@@ -10,7 +10,7 @@
 
         <classes>
             <class name="tests.LoginTest"/>
-            <class name="tests.CheckoutFirstStepTest"/>
+            <class name="tests.CheckoutCompleteTest"/>
         </classes>
     </test>
 </suite>

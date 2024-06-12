@@ -10,7 +10,7 @@ public class CartTest extends BaseTest {
     @DataProvider(name = "productsData")
     public Object[][] getProductsData() {
         return new Object[][]{
-                {"Sauce Labs Fleece Jacket", "$49.99", "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office."},
+                {"Sauce Labs Fleece Jacket", "$49.99","It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office."},
                 {"Sauce Labs Backpack", "$29.99", "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection."}
         };
     }

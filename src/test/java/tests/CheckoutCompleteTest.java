@@ -1,10 +1,11 @@
 package tests;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.*;
 
 public class CheckoutCompleteTest extends BaseTest {
-     @Test(description = "Check that you can continue shopping after paying for the product", groups = "Regression")
+    @Test(description = "Check that you can continue shopping after paying for the product", groups = "Smoke")
     public void backToProductTest() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
